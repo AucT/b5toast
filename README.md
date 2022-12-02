@@ -39,7 +39,6 @@ Default delay is 10s, can be changed in b5toast.js file
 ```javascript
 const optionalDelay = 1000;
 b5toast.success('my message', 'optional title', optionalDelay);
-b5toast.success('my message', 'optional title', optionalDelay);
 b5toast.error('my message', 'optional title', optionalDelay);
 b5toast.show('warning', 'my message', 'optional title', optionalDelay);
 ```
