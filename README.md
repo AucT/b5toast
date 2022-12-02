@@ -27,9 +27,9 @@ b5toast.show('warning', 'my message'); //show toast with warning/any bootstrap c
 #### With optional title
 
 ```javascript
-b5toast.success('my message'); //show toast success
-b5toast.error('my message'); //show toast danger
-b5toast.show('warning', 'my message'); //show toast with warning/any bootstrap color
+b5toast.success('my message', 'optional title'); //show toast success
+b5toast.error('my message', 'optional title'); //show toast danger
+b5toast.show('warning', 'my message', 'optional title'); //show toast with warning/any bootstrap color
 ```
 
 
@@ -37,7 +37,9 @@ b5toast.show('warning', 'my message'); //show toast with warning/any bootstrap c
 Default delay is 10s, can be changed in b5toast.js file
 
 ```javascript
-b5toast.success('my message'); //show toast success
-b5toast.error('my message'); //show toast danger
-b5toast.show('warning', 'my message'); //show toast with warning/any bootstrap color
+const optionalDelay = 1000;
+b5toast.success('my message', 'optional title', optionalDelay);
+b5toast.success('my message', 'optional title', optionalDelay);
+b5toast.error('my message', 'optional title', optionalDelay);
+b5toast.show('warning', 'my message', 'optional title', optionalDelay);
 ```
