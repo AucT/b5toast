@@ -10,13 +10,13 @@
 <div class="container my-4">
     <h1>b5toast demo</h1>
 
-    <button class="btn btn-success" id="btnSuccess">Show me success</button>
-    <button class="btn btn-danger" id="btnDanger">Show me danger</button>
-    <button class="btn btn-warning" id="btnWarning">Show me warning</button>
-    <button class="btn btn-info" id="btnInfo">Show me with delay 1s</button>
-    <button class="btn btn-primary" id="btnRandom">Show me random</button>
+    <button class="btn btn-success mb-2" id="btnSuccess">Show me success</button>
+    <button class="btn btn-danger mb-2" id="btnDanger">Show me danger</button>
+    <button class="btn btn-warning mb-2" id="btnWarning">Show me warning</button>
+    <button class="btn btn-info mb-2" id="btnInfo">Show me with delay 1s</button>
+    <button class="btn btn-primary mb-2" id="btnRandom">Show me random delay 3s</button>
 
-    <br><br><br><br><br>
+    <hr>
     <h2 class="mt-4">Requirements</h2>
     <p>Add this html to the bottom(or anywhere) on the page. Only id is required. Classes can be changed according to your taste.</p>
 
@@ -42,7 +42,7 @@ b5toast.show('warning', 'my message', 'optional title'); //show toast with warni
 </pre>
 </code>
     <h6>With optional delay</h6>
-    <p>Default delay is 10s, can be changed in b5toast.js file</p>
+    <p>Default delay is 7s, can be changed in b5toast.js file</p>
 <code><pre>
 const optionalDelay = 1000;
 b5toast.success('my message', 'optional title', optionalDelay);
@@ -86,7 +86,7 @@ b5toast.show('warning', 'my message', 'optional title', optionalDelay);
     const bootstrapBgColors = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark'];
     btnRandom.onclick = function (event) {
         const randomColor = bootstrapBgColors[Math.floor(Math.random() * bootstrapBgColors.length)];
-        b5toast.show(randomColor, 'my message', 'optional title');
+        b5toast.show(randomColor, 'my message', 'optional title', 3000);
     }
 </script>
 

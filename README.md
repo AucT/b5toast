@@ -34,7 +34,7 @@ b5toast.show('warning', 'my message', 'optional title'); //show toast with warni
 
 
 #### With optional delay
-Default delay is 10s, can be changed in b5toast.js file
+Default delay is 7s, can be changed in b5toast.js file
 
 ```javascript
 const optionalDelay = 1000;
