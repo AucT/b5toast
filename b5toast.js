@@ -3,7 +3,7 @@ const b5toastContainerElement = document.getElementById("toast-container");
 
 //don't touch code below if you don't know what are you doing
 const b5toast = {
-    delayInMilliseconds: 10000,
+    delayInMilliseconds: 7000,
     htmlToElement: function (html) {
         const template = document.createElement("template");
         html = html.trim();
