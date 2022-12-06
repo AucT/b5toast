@@ -1,79 +1,83 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap toast single</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap toast single</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
-<body class="p-4">
-<h1>b5toastSingle</h1>
-<p>Simple function to show single toast. Instead of creating we will reuse single toast. You will need to copy toast-container and place it at the bottom of your html.
-</p>
+<body>
+<div class="container my-4">
+    <h1>b5toastSingle</h1>
+    <p>Simple function to show single toast. Instead of creating we will reuse single toast. You will need to copy
+        toast-container and place it at the bottom of your html.
+    </p>
 
-<p>View source to copy b5toastSingle function (last script element)</p>
+    <p>View source to copy b5toastSingle function (last script element)</p>
 
-<button type="button" class="btn btn-success" id="liveToastBtn">Show live toast</button>
+    <button type="button" class="btn btn-success" id="liveToastBtn">Show live toast</button>
 
-<button type="button" class="btn btn-warning" id="liveToastRandomBtn">Show random live toast</button>
+    <button type="button" class="btn btn-warning" id="liveToastRandomBtn">Show random live toast</button>
 
 
-<div class="toast-container position-fixed bottom-0 start-0 p-3">
-  <div id="b5toastSingle" class="toast align-items-center mt-1 text-white bg-success border-0" role="alert"
-       aria-live="assertive" aria-atomic="true">
-    <div class="d-flex">
-      <div class="toast-body">
-        <b id="b5toastSingleTitle"></b>
-        <div id="b5toastSingleMessage"></div>
-      </div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-              aria-label="Close"></button>
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
+        <div id="b5toastSingle" class="toast align-items-center mt-1 text-white bg-success border-0" role="alert"
+             aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <b id="b5toastSingleTitle"></b>
+                    <div id="b5toastSingleMessage"></div>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 <script>
-  //for demo
-  const toastTrigger = document.getElementById('liveToastBtn');
-  if (toastTrigger) {
-    toastTrigger.addEventListener('click', () => {
-      b5toastSingle('success', 'successfully increased kpi', 'optional title1');
-    });
-  }
+    //for demo
+    const toastTrigger = document.getElementById('liveToastBtn');
+    if (toastTrigger) {
+        toastTrigger.addEventListener('click', () => {
+            b5toastSingle('success', 'successfully increased kpi', 'optional title1');
+        });
+    }
 
-  //random
-  const colorsUsed = ['success', 'primary', 'info', 'danger', 'warning'];
-  const btnRandom = document.getElementById('liveToastRandomBtn');
-  btnRandom.onclick = function (event) {
-    const randomColor = colorsUsed[Math.floor(Math.random() * colorsUsed.length)];
-    b5toastSingle(randomColor, 'my random message', 'optional title2', 3000);
-  }
+    //random
+    const colorsUsed = ['success', 'primary', 'info', 'danger', 'warning'];
+    const btnRandom = document.getElementById('liveToastRandomBtn');
+    btnRandom.onclick = function (event) {
+        const randomColor = colorsUsed[Math.floor(Math.random() * colorsUsed.length)];
+        b5toastSingle(randomColor, 'my random message', 'optional title2');
+    }
 </script>
 
 <script>
-  (function () {
-    const b5toastSingle = document.getElementById('b5toastSingle');
-    const b5toastSingleTitle = document.getElementById('b5toastSingleTitle');
-    const b5toastSingleMessage = document.getElementById('b5toastSingleMessage');
-    const colorsUsed = ['bg-success', 'bg-primary', 'bg-info', 'bg-danger', 'bg-warning'];
+    (function () {
+        const b5toastSingle = document.getElementById('b5toastSingle');
+        const b5toastSingleTitle = document.getElementById('b5toastSingleTitle');
+        const b5toastSingleMessage = document.getElementById('b5toastSingleMessage');
+        const colorsUsed = ['bg-success', 'bg-primary', 'bg-info', 'bg-danger', 'bg-warning'];
 
-    const b5toastSingleElementToast = new bootstrap.Toast(b5toastSingle, {
-      delay: 7000,
-      animation: true
-    });
-    window['b5toastSingle'] = function (color, message, title) {
-      title = title ? title : "";
-      b5toastSingleTitle.innerHTML = title;
-      b5toastSingleMessage.innerHTML = message;
-      b5toastSingle.classList.remove(...colorsUsed);
-      b5toastSingle.classList.add('bg-'+color);
-      b5toastSingleElementToast.show();
-    }
-  })();
+        const b5toastSingleElementToast = new bootstrap.Toast(b5toastSingle, {
+            delay: 5000,
+            animation: true
+        });
+        window['b5toastSingle'] = function (color, message, title) {
+            title = title ? title : "";
+            b5toastSingleTitle.innerHTML = title;
+            b5toastSingleMessage.innerHTML = message;
+            b5toastSingle.classList.remove(...colorsUsed);
+            b5toastSingle.classList.add('bg-' + color);
+            b5toastSingleElementToast.show();
+        }
+    })();
 </script>
 </body>
 </html>
